@@ -60,9 +60,9 @@ $no++;
 </tr></tbody>
 									<?php
 									*/
-                    $p1 = 5;
-                    $p2 = 5;
-                    $p3 = 3;
+                                    $p1 = 3;
+                                    $p2 = 3;
+                                    $p3 = 1;
                     // $p4 = 3;
                     // $p5 = 3;
                     // $p6 = 3;
@@ -389,9 +389,9 @@ $no++;
 </tr></tbody>
 									<?php
 									*/
-                    $p1 = 5;
-                    $p2 = 5;
-                    $p3 = 3;
+                                    $p1 = 3;
+                                    $p2 = 3;
+                                    $p3 = 1;
                     // $p4 = 3;
                     // $p5 = 3;
                     // $p6 = 3;
@@ -420,9 +420,9 @@ $no++;
                     $queryutama2 = mysql_query("SELECT  *  FROM  food order by id_makanan");
                     $no2 = 1;
                     while ($data2 = mysql_fetch_array($queryutama2)) {
-                        $kur1 = $data2[natrium] - $p1;
-                        $kur2 = $data2[lemak] - $p2;
-                        $kur3 = $data2[protein] - $p3;
+                        $kur1 = $data2['natrium'] - $p1;
+                        $kur2 = $data2['lemak'] - $p2;
+                        $kur3 = $data2['protein'] - $p3;
                         // $kur4 = $data2[k4] - $p4;
                         // $kur5 = $data2[k5] - $p5;
                         // $kur6 = $data2[k6] - $p6;
