@@ -14,7 +14,7 @@
                     <tr>
                         <th rowspan="2">No</th>
                         <th rowspan="2">Jenis Makanan</th>
-                        
+
                         <th colspan="3">Hasil Bobot Nilai Makanan</th>
                         <th rowspan="2">NCF</th>
                         <th rowspan="2">NSF</th>
@@ -60,8 +60,8 @@ $no++;
 }  
 ?>
 </tr></tbody>
-									<?php
-									*/
+            <?php
+            */
                 $p1 = 5;
                 $p2 = 5;
                 $p3 = 3;
@@ -70,7 +70,7 @@ $no++;
                 // $p6 = 3;
                 // $p7 = 3;
                 /*
-									?>
+			?>
 									<thead>
                                         <tr>
                                             <th colspan=2>Angka Profile Matching</th>
@@ -334,10 +334,14 @@ $no++;
                             <td><?php echo "$b1"; ?></td>
                             <td><?php echo "$b2"; ?></td>
                             <td><?php echo "$b3"; ?></td>
-                            <!-- <td><?php //echo "$b4"; ?></td>
-                            <td><?php //echo "$b5"; ?></td>
-                            <td><?php //echo "$b6"; ?></td>
-                            <td><?php //echo "$b7"; ?></td> -->
+                            <!-- <td><?php //echo "$b4"; 
+                                        ?></td>
+                            <td><?php //echo "$b5"; 
+                                ?></td>
+                            <td><?php //echo "$b6"; 
+                                ?></td>
+                            <td><?php //echo "$b7"; 
+                                ?></td> -->
                             <td><?php echo number_format($cf, 2); ?></td>
                             <td><?php echo number_format($sf, 2); ?></td>
 
