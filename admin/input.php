@@ -17,7 +17,7 @@
 						$jsArray = "var dtMhs = new Array();\n";
 						while ($row = mysql_fetch_array($result)) {
 							echo '<option value="' . $row['id_makanan'] . '">' . $row['name'] . '</option>';
-							$jsArray .= "dtMhs['" . $row['id_makanan'] . "'] = {nama:'" . addslashes($row['natrium']) . "',jrsn:'" . addslashes($row['lemak']) . "',jml:'" . addslashes($row['protein']) . "'};\n";
+							$jsArray .= "dtMhs['" . $row['id_makanan'] . "'] = {nama:'" . addslashes($row['natrium']) . "',jrsn:'" . addslashes($row['lemak']) . "',jml:'" . addslashes($row['protein']) .  "',pendapatan:'" . addslashes($row['name']) . "'};\n";
 							// $jsArray .= "dtMhs['" . $row['id_makanan'] . "'] = {nama:'" . addslashes($row['k1']) . "',jrsn:'" . addslashes($row['k2']) . "',jml:'" . addslashes($row['k3']) . "',pendapatan:'" . addslashes($row['k4']) . "',status:'" . addslashes($row['k5']) . "',hardisk:'" . addslashes($row['k6']) . "'};\n";
 						}
 						?>
@@ -45,15 +45,15 @@
 
 					<input type="text" data-field="x_username" id="jml" name='jml' class="form-control" readonly />
 				</td>
-			<!-- </tr>
+			</tr>
 			<tr>
 				<td>
-					Kriteria Kapasitas Memori </td>
+					Namanya </td>
 				<td>
 					<input type="text" data-field="x_username" id="pendapatan" name='pendapatan' class="form-control" readonly />
 				</td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>Kriteria Tipe Memori </td>
 				<td>
 
@@ -82,7 +82,7 @@
 			document.getElementById('nm').value = dtMhs[id_makanan].nama;
 			document.getElementById('jrsn').value = dtMhs[id_makanan].jrsn;
 			document.getElementById('jml').value = dtMhs[id_makanan].jml;
-			// document.getElementById('pendapatan').value = dtMhs[id_makanan].pendapatan;
+			document.getElementById('pendapatan').value = dtMhs[id_makanan].pendapatan;
 			// document.getElementById('status').value = dtMhs[id_makanan].status;
 			// document.getElementById('hardisk').value = dtMhs[id_makanan].hardisk;
 		};

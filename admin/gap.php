@@ -39,12 +39,12 @@
                     // $queryutama = mysql_query("SELECT  *  FROM  food order by id_makanan asc");
                     $no = 1;
                     while ($data = mysql_fetch_array($queryutama)) {
-
+                        // var_dump($data);die;
                     ?>
                         <tr>
                             <td><?php echo $no;  ?></td>
-                            <!-- <td><?php echo $data[id_makanan];  ?></td> -->
-                            <td><?php echo $data[name];  ?></td>
+                            <!-- <td><?php //echo $data[id_makanan];  ?></td> -->
+                            <td><?php echo $data['name'];  ?></td>
                             <td><?php echo $data['natrium']; ?></td>
                             <td><?php echo $data['lemak']; ?></td>
                             <td><?php echo $data['protein']; ?></td>

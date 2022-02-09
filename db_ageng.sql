@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.3
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 07, 2022 at 07:03 AM
--- Server version: 5.7.26
+-- Host: localhost:8889
+-- Generation Time: Feb 10, 2022 at 12:00 AM
+-- Server version: 5.7.34
 -- PHP Version: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -34,7 +34,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_user`, `username`, `password`, `nama`, `phone`, `email`) VALUES
-(1, 'admin', 'admin', 'Administrator', '+6281947472218', 'admin@gmail.com');
+(1, 'admin', 'admin', 'Ageng', '+6283148263597', 'admin@admin.com');
 
 -- --------------------------------------------------------
 
@@ -101,8 +101,7 @@ INSERT INTO `food` (`id_makanan`, `name`, `natrium`, `lemak`, `protein`) VALUES
 (20, 'Gurame Asam Manis', 0, 30.3, 38.1),
 (21, 'Mi Instan', 1310, 26, 10),
 (22, 'Sardines', 290, 3, 11),
-(23, 'Tahu Tempe', 29, 35.1, 34.2),
-(24, 'Nasi Contoh', 2, 3, 4);
+(23, 'Tahu Tempe', 29, 35.1, 34.2);
 
 -- --------------------------------------------------------
 
@@ -123,29 +122,28 @@ CREATE TABLE `hasil` (
 --
 
 INSERT INTO `hasil` (`idhasil`, `idproses`, `ncf`, `nsf`, `nt`) VALUES
-(1, 1, 0, 0, 0),
-(2, 3, 0, 0, 0),
-(3, 4, 0, 0, 0),
-(4, 5, 0, 0, 0),
-(5, 6, 0, 0, 0),
-(6, 7, 0, 0, 0),
-(7, 8, 0, 0, 0),
-(8, 9, 0, 0, 0),
-(9, 10, 0, 0, 0),
-(10, 11, 0, 0, 0),
-(11, 12, 0, 0, 0),
-(12, 13, 0, 0, 0),
-(13, 14, 0, 0, 0),
-(14, 15, 0, 0, 0),
-(15, 16, 0, 0, 0),
-(16, 17, 0, 0, 0),
-(17, 18, 0, 0, 0),
-(18, 19, 0, 0, 0),
-(19, 20, 0, 0, 0),
-(20, 21, 0, 0, 0),
-(21, 22, 1, 0, 0.6),
-(22, 23, 1, 0, 0.6),
-(23, 24, 1.66666666667, 1.5, 1.6);
+(24, 1, 0, 0, 0),
+(25, 3, 0.666666666667, 0, 0.4),
+(26, 4, 0.666666666667, 0, 0.4),
+(27, 5, 0.666666666667, 0, 0.4),
+(28, 6, 0.666666666667, 0, 0.4),
+(29, 7, 0.666666666667, 0, 0.4),
+(30, 8, 0.666666666667, 0, 0.4),
+(31, 9, 0.666666666667, 0, 0.4),
+(32, 10, 0.666666666667, 0, 0.4),
+(33, 11, 0.666666666667, 0, 0.4),
+(34, 12, 0.666666666667, 0, 0.4),
+(35, 13, 0.666666666667, 0, 0.4),
+(36, 14, 0.666666666667, 0, 0.4),
+(37, 15, 0.666666666667, 0, 0.4),
+(38, 16, 0.666666666667, 0, 0.4),
+(39, 17, 0.666666666667, 0, 0.4),
+(40, 18, 0.666666666667, 0, 0.4),
+(41, 19, 0.666666666667, 0, 0.4),
+(42, 20, 0.666666666667, 0, 0.4),
+(43, 21, 0.666666666667, 0, 0.4),
+(44, 22, 2.33333333333, 0, 1.4),
+(45, 23, 2.33333333333, 0, 1.4);
 
 -- --------------------------------------------------------
 
@@ -154,8 +152,12 @@ INSERT INTO `hasil` (`idhasil`, `idproses`, `ncf`, `nsf`, `nt`) VALUES
 --
 
 CREATE TABLE `proses_spk` (
-  `id_laptop` int(11) NOT NULL,
+  `id_makanan` int(11) NOT NULL,
   `jenis_makanan` varchar(35) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `natrium` int(11) NOT NULL,
+  `lemak` int(11) NOT NULL,
+  `protein` int(11) NOT NULL,
   `k1` int(11) NOT NULL,
   `k2` int(11) NOT NULL,
   `k3` int(11) NOT NULL,
@@ -169,9 +171,29 @@ CREATE TABLE `proses_spk` (
 -- Dumping data for table `proses_spk`
 --
 
-INSERT INTO `proses_spk` (`id_laptop`, `jenis_makanan`, `k1`, `k2`, `k3`, `k4`, `k5`, `k6`, `k7`) VALUES
-(6, 'Rendang', 3, 4, 4, 4, 3, 5, 4),
-(7, 'Nasi Contoh', 2, 3, 4, 0, 0, 0, 0);
+INSERT INTO `proses_spk` (`id_makanan`, `jenis_makanan`, `name`, `natrium`, `lemak`, `protein`, `k1`, `k2`, `k3`, `k4`, `k5`, `k6`, `k7`) VALUES
+(36, '1', 'Nasi', 5, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(37, '3', 'Lupis Ketan', 5, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(38, '4', 'Mie Ayam', 1, 2, 1, 0, 0, 0, 0, 0, 0, 0),
+(39, '5', 'Yangko', 5, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(40, '6', 'Gatot', 5, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(41, '7', 'Geblek', 5, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(42, '8', 'Getuk Singkong', 5, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(43, '9', 'Ongol-ongol sagu', 5, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(44, '10', 'Tiwul', 5, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(45, '11', 'Geplak', 5, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(46, '12', 'Rempeyek Kacang', 5, 5, 1, 0, 0, 0, 0, 0, 0, 0),
+(47, '13', 'Tahu Goreng', 5, 2, 1, 0, 0, 0, 0, 0, 0, 0),
+(48, '14', 'Tempe Goreng', 5, 2, 1, 0, 0, 0, 0, 0, 0, 0),
+(49, '15', 'Tempe Benguk', 5, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(50, '16', 'Ayam Goreng', 2, 4, 5, 0, 0, 0, 0, 0, 0, 0),
+(51, '17', 'Soto Jeroan', 1, 3, 3, 0, 0, 0, 0, 0, 0, 0),
+(52, '18', 'Soto Kudus', 5, 2, 1, 0, 0, 0, 0, 0, 0, 0),
+(53, '19', 'Belut Goreng', 5, 5, 3, 0, 0, 0, 0, 0, 0, 0),
+(54, '20', 'Gurame Asam Manis', 5, 4, 2, 0, 0, 0, 0, 0, 0, 0),
+(55, '21', 'Mi Instan', 1, 4, 1, 0, 0, 0, 0, 0, 0, 0),
+(56, '22', 'Sardines', 4, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(57, '23', 'Tahu Tempe', 5, 4, 2, 0, 0, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -205,7 +227,7 @@ ALTER TABLE `hasil`
 -- Indexes for table `proses_spk`
 --
 ALTER TABLE `proses_spk`
-  ADD PRIMARY KEY (`id_laptop`);
+  ADD PRIMARY KEY (`id_makanan`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -233,10 +255,10 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `hasil`
 --
 ALTER TABLE `hasil`
-  MODIFY `idhasil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idhasil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `proses_spk`
 --
 ALTER TABLE `proses_spk`
-  MODIFY `id_laptop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_makanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
