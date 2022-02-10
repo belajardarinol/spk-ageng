@@ -66,11 +66,12 @@
                             <span class="isw-list"></span><span class="text">Laporan Hasil Pemilihan Makanan  </span>
                         </a>                  
                     </li>    
-					<li>
+					<!-- <li>
                         <a href="?menu=laporan_makanan&act=view">
                             <span class="isw-list"></span><span class="text">Laporan Data Makanan  </span>
                         </a>                  
-                    </li>                        
+                    </li>                         -->
         </ul>
+        Ageng-SPK
 </body>
 </html>

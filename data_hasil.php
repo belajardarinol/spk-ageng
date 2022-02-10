@@ -62,7 +62,7 @@ session_start();
 						<table class="table table-striped table-bordered table-hover" border=1 cellspacing=0 cellpadding=5 align="center" width="50%">
 							<thead>
 								<tr>
-									<th>No</th>
+									<!-- <th>No</th> -->
 									<th>Jenis Makanan</th>
 									<th>NCF</th>
 									<th>NSF</th>
@@ -75,7 +75,7 @@ session_start();
 
 								<?php
 								$queryutama3 = mysql_query("SELECT  *  FROM  hasil order by nt desc");
-								$no3 = 1;
+								
 								while ($data3 = mysql_fetch_array($queryutama3)) {
 
 									$kar = mysql_fetch_array(mysql_query("select * from food where id_makanan='$data3[idproses]'"));
@@ -83,22 +83,26 @@ session_start();
 								<?php if(isset($_POST) == true){
 									// var_dump($_POST);die;
 									if($data3[idproses] == $_POST[m1] or $data3[idproses] == $_POST[m2] or $data3[idproses] == $_POST[m3]){
+										$no1 = 1;
 										?>
 										<tr>
-										<td><?php echo $no3;  ?></td>
+										<!-- <td><?php echo $no1;  ?></td> -->
 										<td><?php echo $kar['name'];  ?></td>
 										<td><?php echo number_format($data3['ncf'], 2); ?></td>
 										<td><?php echo number_format($data3['nsf'], 2); ?></td>
 										<td><?php echo number_format($data3['nt'], 2); ?></td>
-										<td align=center><?php echo $no3;  ?></td>
+										<td align=center><?php echo $no1; $no1++; ?><td align=center>
+											<!-- <a href="admin/media.php?menu=hasilakhir&act=lihat&id=<?php echo "$data3[id_makanan]"; ?>" class="btn btn-info">Lihat</a> -->
+										</td></td>
 										</tr>	
 										<?php 
+										
 									}
 									?>
 									
 
 									<?php }
-									$no3++;
+									
 								}
 									?>
 									

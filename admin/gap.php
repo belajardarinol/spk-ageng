@@ -35,26 +35,81 @@
 
                     <?php
 
-                    $queryutama = mysql_query("SELECT  *  FROM  proses_spk order by id_makanan asc");
+                    $queryutama = mysql_query("SELECT  *  FROM  food order by id_makanan asc");
                     // $queryutama = mysql_query("SELECT  *  FROM  food order by id_makanan asc");
                     $no = 1;
                     while ($data = mysql_fetch_array($queryutama)) {
+                        $nat = $data['natrium'];
+                        $le = $data['lemak'];
+                        $pr = $data['protein'];
+                        // $nim = $_POST['nim'];
+                        // $name = $_POST['pendapatan'];
+                        if ($nat >= 851) {
+                            $natrium = 1;
+                        } elseif ($nat >= 501) {
+                            $natrium = 2;
+                        } elseif ($nat >= 351) {
+                            $natrium = 3;
+                        } elseif ($nat >= 151) {
+                            $natrium = 4;
+                        } else {
+                            $natrium = 5;
+                        }
+
+                        if ($le >= 36) {
+                            $lemak = 5;
+                        } elseif ($le >= 26) {
+                            $lemak = 4;
+                        } elseif ($le >= 16) {
+                            $lemak = 3;
+                        } elseif ($le >= 6) {
+                            $lemak = 2;
+                        } else {
+                            $lemak = 1;
+                        }
+
+                        if ($pr >= 96) {
+                            $protein = 5;
+                        } elseif ($pr >= 73) {
+                            $protein = 4;
+                        } elseif ($pr >= 49) {
+                            $protein = 3;
+                        } elseif ($pr >= 25) {
+                            $protein = 2;
+                        } else {
+                            $protein = 1;
+                        }
+                        // var_dump($natrium);
+                        // var_dump($lemak);
+                        // var_dump($protein);
+                        // die;
+                        $natrium = $natrium - 3;
+                        $lemak = $lemak - 3;
+                        $protein = $protein - 1;
                         // var_dump($data);die;
                     ?>
                         <tr>
                             <td><?php echo $no;  ?></td>
-                            <!-- <td><?php //echo $data[id_makanan];  ?></td> -->
+                            <!-- <td><?php //echo $data[id_makanan];  
+                                        ?></td> -->
                             <td><?php echo $data['name'];  ?></td>
-                            <td><?php echo $data['natrium']; ?></td>
-                            <td><?php echo $data['lemak']; ?></td>
-                            <td><?php echo $data['protein']; ?></td>
-                            <!-- <td><?php // echo $data['k1']; ?></td>
-                            <td><?php // echo $data['k2']; ?></td>
-                            <td><?php //echo $data['k3']; ?></td>
-                            <td><?php //echo $data['k4']; ?></td>
-                            <td><?php //echo $data['k5']; ?></td>
-                            <td><?php //echo $data['k6']; ?></td>
-                            <td><?php //echo $data['k7']; ?></td> -->
+                            <td><?php echo $natrium ?></td>
+                            <td><?php echo $lemak ?></td>
+                            <td><?php echo $protein ?></td>
+                            <!-- <td><?php // echo $data['k1']; 
+                                        ?></td>
+                            <td><?php // echo $data['k2']; 
+                                ?></td>
+                            <td><?php //echo $data['k3']; 
+                                ?></td>
+                            <td><?php //echo $data['k4']; 
+                                ?></td>
+                            <td><?php //echo $data['k5']; 
+                                ?></td>
+                            <td><?php //echo $data['k6']; 
+                                ?></td>
+                            <td><?php //echo $data['k7']; 
+                                ?></td> -->
                             <td></td>
                             <td></td>
 
@@ -76,14 +131,18 @@
                 ?>
                 <thead>
                     <tr>
-                        <th colspan=2>Angka Profile Matching</th>
-                        <th><?php echo "$p1"; ?></th>
-                        <th><?php echo "$p2"; ?></th>
-                        <th><?php echo "$p3"; ?></th>
-                        <!-- <th><?php // echo "$p4"; ?></th>
-                        <th><?php // echo "$p5"; ?></th>
-                        <th><?php // echo "$p6"; ?></th>
-                        <th><?php // echo "$p7"; ?></th> -->
+                        <th colspan=2>Angka Profile Makanan</th>
+                        <th><?php echo 3; ?></th>
+                        <th><?php echo 3; ?></th>
+                        <th><?php echo 1; ?></th>
+                        <!-- <th><?php // echo "$p4"; 
+                                    ?></th>
+                        <th><?php // echo "$p5"; 
+                            ?></th>
+                        <th><?php // echo "$p6"; 
+                            ?></th>
+                        <th><?php // echo "$p7"; 
+                            ?></th> -->
 
                     </tr>
                 </thead>
@@ -91,35 +150,35 @@
                     <?php
 
                     // $queryutama2 = mysql_query("SELECT  *  FROM  food order by id_makanan asc");
-                    $queryutama = mysql_query("SELECT  *  FROM  proses_spk order by id_makanan asc");
-                    $no2 = 1;
-                    while ($data2 = mysql_fetch_array($queryutama2)) {
-                        $kur1 = $data2[natrium] - $p1;
-                        $kur2 = $data2[lemak] - $p2;
-                        $kur3 = $data2[protein] - $p3;
+                    // $queryutama = mysql_query("SELECT  *  FROM  proses_spk order by id_makanan asc");
+                    // $no2 = 1;
+                    // while ($data2 = mysql_fetch_array($queryutama2)) {
+                    //     $kur1 = $data2[natrium] - $p1;
+                    //     $kur2 = $data2[lemak] - $p2;
+                    //     $kur3 = $data2[protein] - $p3;
                         // $kur4 = $data2[k4] - $p4;
                         // $kur5 = $data2[k5] - $p5;
                         // $kur6 = $data2[k6] - $p6;
                         // $kur7 = $data2[k7] - $p7;
-                        $plus = 0;
-                        $min = 0;
+                        // $plus = 0;
+                        // $min = 0;
                         //$juml=$kur1+$kur2+$kur3+$kur4+$kur5+$kur6;
 
-                        if ($kur1 >= "0") {
-                            $plus = $plus + $kur1;
-                        } else {
-                            $min = $min + $kur1;
-                        }
-                        if ($kur2 >= "0") {
-                            $plus = $plus + $kur2;
-                        } else {
-                            $min = $min + $kur2;
-                        }
-                        if ($kur3 >= "0") {
-                            $plus = $plus + $kur3;
-                        } else {
-                            $min = $min + $kur3;
-                        }
+                        // if ($kur1 >= "0") {
+                        //     $plus = $plus + $kur1;
+                        // } else {
+                        //     $min = $min + $kur1;
+                        // }
+                        // if ($kur2 >= "0") {
+                        //     $plus = $plus + $kur2;
+                        // } else {
+                        //     $min = $min + $kur2;
+                        // }
+                        // if ($kur3 >= "0") {
+                        //     $plus = $plus + $kur3;
+                        // } else {
+                        //     $min = $min + $kur3;
+                        // }
                         // if ($kur4 >= "0") {
                         //     $plus = $plus + $kur4;
                         // } else {
@@ -143,21 +202,25 @@
                     ?>
 
                         <tr>
-                            <td><?php echo $no2;  ?></td>
+                            <!-- <td><?php echo $no2;  ?></td>
                             <td><?php echo $data2[name];  ?></td>
                             <td><?php echo "$kur1"; ?></td>
                             <td><?php echo "$kur2"; ?></td>
-                            <td><?php echo "$kur3"; ?></td>
-                            <!-- <td><?php //echo "$kur4"; ?></td>
-                            <td><?php //echo "$kur5"; ?></td>
-                            <td><?php //echo "$kur6"; ?></td>
-                            <td><?php //echo "$kur7"; ?></td> -->
-                            <td><?php echo "$plus"; ?></td>
-                            <td><?php echo "$min"; ?></td>
+                            <td><?php echo "$kur3"; ?></td> -->
+                            <!-- <td><?php //echo "$kur4"; 
+                                        ?></td>
+                            <td><?php //echo "$kur5"; 
+                                ?></td>
+                            <td><?php //echo "$kur6"; 
+                                ?></td>
+                            <td><?php //echo "$kur7"; 
+                                ?></td> -->
+                            <!-- <td><?php echo "$plus"; ?></td>
+                            <td><?php echo "$min"; ?></td> -->
 
                         <?php
-                        $no2++;
-                    }
+                        // $no2++;
+                    // }
                         ?>
                         </tr>
                 </tbody>
