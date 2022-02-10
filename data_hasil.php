@@ -1,6 +1,4 @@
 <?php
-error_reporting(1);
-error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 session_start();
 ?>
 <!DOCTYPE html>
@@ -77,10 +75,9 @@ session_start();
 								$queryutama3 = mysql_query("SELECT  *  FROM  hasil order by nt desc");
 								// print_r(mysql_fetch_array($queryutama3));
 								$n = 1;
-								// $data1 = mysql_fetch_array($queryutama3);
-								foreach (mysql_fetch_array($queryutama3) as $data2) {
-									// $data3 = (array)$data2;
-									var_dump($data2);die;
+								$data1 = mysql_fetch_array($queryutama3);
+								foreach ($data1 as $data2) {
+									$data3 = (array)$data2;die;
 								// while ($data3 = mysql_fetch_array($queryutama3)) {
 									
 									$kar = mysql_fetch_array(mysql_query("select * from food where id_makanan='$data3[idproses]'"));
