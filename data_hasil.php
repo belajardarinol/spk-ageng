@@ -1,4 +1,6 @@
 <?php
+error_reporting(1);
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 session_start();
 ?>
 <!DOCTYPE html>
@@ -73,33 +75,67 @@ session_start();
 
 								<?php
 								$queryutama3 = mysql_query("SELECT  *  FROM  hasil order by nt desc");
-
-								while ($data3 = mysql_fetch_array($queryutama3)) {
-
+								// print_r(mysql_fetch_array($queryutama3));
+								$n = 1;
+								// $data1 = mysql_fetch_array($queryutama3);
+								foreach (mysql_fetch_array($queryutama3) as $data2) {
+									// $data3 = (array)$data2;
+									var_dump($data2);die;
+								// while ($data3 = mysql_fetch_array($queryutama3)) {
+									
 									$kar = mysql_fetch_array(mysql_query("select * from food where id_makanan='$data3[idproses]'"));
 								?>
 									<?php if (isset($_POST) == true) {
 										// var_dump($_POST);die;
-										if ($data3[idproses] == $_POST[m1] or $data3[idproses] == $_POST[m2] or $data3[idproses] == $_POST[m3]) {
-											$no1 = 1;
+										
+										if ($data3['idproses'] == $_POST['m1']) {
+
 									?>
 											<tr>
 												<!-- <td><?php echo $no1;  ?></td> -->
-												<td><?php echo $kar['name'];  ?></td>
+												<td><?php echo $kar['name']; var_dump($data3['idproses']) ?></td>
 												<td><?php echo number_format($data3['ncf'], 2); ?></td>
 												<td><?php echo number_format($data3['nsf'], 2); ?></td>
 												<td><?php echo number_format($data3['nt'], 2); ?></td>
-												<td align=center><?php echo $no1;
-																	$no1++; ?>
+												<td align=center><?php echo $n; $n++ ?>
 													<!-- <td align=center>
 											<a href="admin/media.php?menu=hasilakhir&act=lihat&id=<?php echo "$data3[id_makanan]"; ?>" class="btn btn-info">Lihat</a>
 										</td> -->
 												</td>
 											</tr>
-										<?php
+										<?php }
+										if ($data3['idproses'] == $_POST['m2']) {
 
-										}
 										?>
+											<tr>
+												<!-- <td><?php echo $no1;  ?></td> -->
+												<td><?php echo $kar['name']; var_dump($data3['idproses'])  ?></td>
+												<td><?php echo number_format($data3['ncf'], 2); ?></td>
+												<td><?php echo number_format($data3['nsf'], 2); ?></td>
+												<td><?php echo number_format($data3['nt'], 2); ?></td>
+												<td align=center><?php echo $n; $n++ ?>
+													<!-- <td align=center>
+		<a href="admin/media.php?menu=hasilakhir&act=lihat&id=<?php echo "$data3[id_makanan]"; ?>" class="btn btn-info">Lihat</a>
+	</td> -->
+												</td>
+											</tr>
+										<?php }
+										if ($data3['idproses'] == $_POST['m3']) {
+
+										?>
+											<tr>
+												<!-- <td><?php echo $no1;  ?></td> -->
+												<td><?php echo $kar['name'];var_dump($data3['idproses'])  ?></td>
+												<td><?php echo number_format($data3['ncf'], 2); ?></td>
+												<td><?php echo number_format($data3['nsf'], 2); ?></td>
+												<td><?php echo number_format($data3['nt'], 2); ?></td>
+												<td align=center><?php echo $n; $n++ ?>
+													<!-- <td align=center>
+		<a href="admin/media.php?menu=hasilakhir&act=lihat&id=<?php echo "$data3[id_makanan]"; ?>" class="btn btn-info">Lihat</a>
+	</td> -->
+												</td>
+											</tr>
+										<?php } ?>
 
 
 								<?php }
