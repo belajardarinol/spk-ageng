@@ -75,10 +75,10 @@ session_start();
 								$queryutama3 = mysql_query("SELECT  *  FROM  hasil order by nt desc");
 								// print_r(mysql_fetch_array($queryutama3));
 								$n = 1;
-								$data1 = mysql_fetch_array($queryutama3);
-								foreach ($data1 as $data2) {
-									$data3 = (array)$data2;die;
-								// while ($data3 = mysql_fetch_array($queryutama3)) {
+								// $data1 = mysql_fetch_array($queryutama3);
+								// foreach ($data1 as $data2) {
+								// 	$data3 = (array)$data2;die;
+								while ($data3 = mysql_fetch_array($queryutama3)) {
 									
 									$kar = mysql_fetch_array(mysql_query("select * from food where id_makanan='$data3[idproses]'"));
 								?>
@@ -90,7 +90,7 @@ session_start();
 									?>
 											<tr>
 												<!-- <td><?php echo $no1;  ?></td> -->
-												<td><?php echo $kar['name']; var_dump($data3['idproses']) ?></td>
+												<td><?php echo $kar['name']; //var_dump($data3['idproses']) ?></td>
 												<td><?php echo number_format($data3['ncf'], 2); ?></td>
 												<td><?php echo number_format($data3['nsf'], 2); ?></td>
 												<td><?php echo number_format($data3['nt'], 2); ?></td>
@@ -106,7 +106,7 @@ session_start();
 										?>
 											<tr>
 												<!-- <td><?php echo $no1;  ?></td> -->
-												<td><?php echo $kar['name']; var_dump($data3['idproses'])  ?></td>
+												<td><?php echo $kar['name']; //var_dump($data3['idproses'])  ?></td>
 												<td><?php echo number_format($data3['ncf'], 2); ?></td>
 												<td><?php echo number_format($data3['nsf'], 2); ?></td>
 												<td><?php echo number_format($data3['nt'], 2); ?></td>
@@ -122,7 +122,7 @@ session_start();
 										?>
 											<tr>
 												<!-- <td><?php echo $no1;  ?></td> -->
-												<td><?php echo $kar['name'];var_dump($data3['idproses'])  ?></td>
+												<td><?php echo $kar['name'];v //ar_dump($data3['idproses'])  ?></td>
 												<td><?php echo number_format($data3['ncf'], 2); ?></td>
 												<td><?php echo number_format($data3['nsf'], 2); ?></td>
 												<td><?php echo number_format($data3['nt'], 2); ?></td>
